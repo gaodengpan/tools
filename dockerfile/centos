@@ -8,5 +8,5 @@ RUN rm -f /etc/yum.repos.d/*.repo \
     && yum install -y git \
     && yum install -y clang \
     && yum install -y clang-tools-extra \
-    && wget https://raw.githubusercontent.com/gaodengpan/tools/main/install/go_install.sh && sh go_install.sh \
+    && wget https://raw.githubusercontent.com/gaodengpan/tools/main/install/go_install.sh && sh go_install.sh && source ~/.bashrc \
     && go install mvdan.cc/sh/v3/cmd/shfmt@latest
