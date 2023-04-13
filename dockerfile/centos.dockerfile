@@ -7,4 +7,5 @@ RUN rm -f /etc/yum.repos.d/*.repo \
     && yum install -y clang \
     && yum install -y clang-tools-extra \
     && bash -c "$(curl -fSsL https://gitee.com/gaodp486/tools/raw/main/install/go_install.sh)" && source ~/.bashrc \
+    && culr https://gitee.com/gaodp486/tools/raw/main/config/.alias >> ~/.bashrc \
     && go install mvdan.cc/sh/v3/cmd/shfmt@latest
