@@ -1,5 +1,5 @@
 alias diff='diff --color'
 alias egrep='egrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
 alias fgrep='fgrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
-alias ll='ls -lh'
-alias ls='ls -G'
+alias ll='ls -lh --color'
+alias ls='ls --color'
