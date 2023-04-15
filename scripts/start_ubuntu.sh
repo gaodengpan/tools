@@ -7,7 +7,7 @@ IMAGE=gaodp/ubuntu:latest
 docker version > /dev/null
 if [ $? -ne 0 ]; then
 	echo "docker is not running!"
-	return
+    exit 1
 fi
 
 running=$(docker container inspect $CONTAINER_NAME -f {{.State.Running}})
