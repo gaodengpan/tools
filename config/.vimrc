@@ -6,6 +6,9 @@ hi NonText guibg=NONE ctermbg=NONE
 
 
 call plug#begin('~/.vim/plugged')
+Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/vim-github-dashboard'
+Plug 'fatih/vim-go', { 'tag': '*' }
 Plug 'rhysd/vim-clang-format'
 call plug#end()
 

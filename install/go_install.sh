@@ -1,6 +1,6 @@
 #! /bin/bash
 
-curl -O https://go.dev/dl/go1.20.3.linux-amd64.tar.gz
+wget https://go.dev/dl/go1.20.3.linux-amd64.tar.gz
 
 tar xzf go1.20.3.linux-amd64.tar.gz
 
