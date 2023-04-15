@@ -6,6 +6,6 @@ echo "
 export GOROOT=$(go env GOROOT)
 export GOPATH=$(go env GOPATH)
 export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
-" >> ~/.bashrc
+" >> ~/.oh-my-zsh/oh-my-zsh.sh
 
-source ~/.bashrc
+source ~/.oh-my-zsh/oh-my-zsh.sh
