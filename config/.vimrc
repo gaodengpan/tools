@@ -2,6 +2,7 @@ set number
 syntax enable
 hi Normal guibg=NONE ctermbg=NONE
 hi NonText guibg=NONE ctermbg=NONE
+highlight LineNr ctermfg=grey ctermbg=NONE
 
 call plug#begin('~/.vim/plugged')
 Plug 'fatih/vim-go'
