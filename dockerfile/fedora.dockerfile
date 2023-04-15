@@ -2,7 +2,7 @@ FROM bitnami/git:2.40.0 AS build
 
 RUN git clone https://github.com/gaodengpan/tools.git
 
-FROM dokken/centos-7:latest
+FROM fedora:latest
 
 COPY --from=build tools /tools
 
@@ -17,12 +17,14 @@ RUN sh install/go_install.sh && source ~/.bashrc \
 
 WORKDIR /
 
-RUN  sed -e 's|^mirrorlist=|#mirrorlist=|g' \
-         -e 's|^#baseurl=http://mirror.centos.org/centos|baseurl=https://mirrors.tuna.tsinghua.edu.cn/centos|g' \
+RUN  sed -e 's|^metalink=|#metalink=|g' \
+         -e 's|^#baseurl=http://download.example/pub/fedora/linux|baseurl=https://mirrors.tuna.tsinghua.edu.cn/fedora|g' \
          -i.bak \
-         /etc/yum.repos.d/CentOS-*.repo \
-    && yum clean all && yum makecache \
-    && yum install -y vim zsh git gcc clang clang-tools-extra \
+         /etc/yum.repos.d/fedora.repo \
+         /etc/yum.repos.d/fedora-modular.repo \
+         /etc/yum.repos.d/fedora-updates.repo \
+         /etc/yum.repos.d/fedora-updates-modular.repo \
+    && dnf install -y vim zsh git gcc clang clang-tools-extra \
     && sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
     && rm -rf /tools
 
