@@ -10,7 +10,6 @@ shift
 options="$*"
 IMAGE=gaodp/ubuntu
 
-
 # build
 docker build $options --add-host raw.githubusercontent.com:185.199.108.133 -t $IMAGE:$version -f ubuntu.dockerfile .
 
@@ -21,6 +20,7 @@ fi
 # tag
 docker tag $IMAGE:$version $IMAGE:latest
 # push
-docker push $IMAGE:$version &
-docker push $IMAGE:latest &
-wait
+{
+    docker push $IMAGE:$version > /dev/null
+    docker push $IMAGE:latest > /dev/null
+} &
