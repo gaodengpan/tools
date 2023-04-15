@@ -9,7 +9,8 @@ COPY --from=build tools /tools
 WORKDIR /tools
 
 RUN apt-get update \
-    && apt install -y man-db curl wget vim zsh git gcc clang clang-format 
+    && apt-get install -y man-db curl wget vim zsh git clang clang-format \
+    && apt-get clean
 
 RUN sh install/go_install.sh \
     && go install mvdan.cc/sh/v3/cmd/shfmt@latest \
