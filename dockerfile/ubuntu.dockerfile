@@ -7,11 +7,12 @@ RUN apt-get update \
     && apt-get install -y man-db wget vim zsh git clang clang-format \
     && apt-get clean
 
-RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
+RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
     && /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/gaodengpan/tools/master/install/go_install.sh)" \
     && go install mvdan.cc/sh/v3/cmd/shfmt@latest \
-    && curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim  \
-    && curl https://raw.githubusercontent.com/gaodengpan/tools/master/config/.vimrc >> ~/.vimrc 
+    && git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime && sh ~/.vim_runtime/install_awesome_vimrc.sh \
+    && curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
+    && curl https://raw.githubusercontent.com/gaodengpan/tools/master/config/.vimrc >> ~/.vim_runtime/my_configs.vim
 
 WORKDIR /root
 
