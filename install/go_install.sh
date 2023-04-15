@@ -1,13 +1,11 @@
 #! /bin/bash
 
-wget https://go.dev/dl/go1.20.3.linux-amd64.tar.gz
+apt-get install -y golang
 
-tar xzf go1.20.3.linux-amd64.tar.gz
-
-mv go /usr/local/ && rm go1.20.3.linux-amd64.tar.gz
-
-echo '
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/go
+echo "
+export GOROOT=$(go env GOROOT)
+export GOPATH=$(go env GOPATH)
 export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
-' >> ~/.bashrc
+" >> ~/.bashrc
+
+source ~/.bashrc
