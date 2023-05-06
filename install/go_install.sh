@@ -1,6 +1,4 @@
-#! /bin/zsh
-
-apt-get install -y golang
+#! /bin/sh
 
 echo "export GOROOT=$(go env GOROOT)
 export GOPATH=$(go env GOPATH)

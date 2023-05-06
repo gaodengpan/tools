@@ -1,7 +1,7 @@
-#! /bin/bash
+#! /bin/sh
 
-CONTAINER_NAME="ubuntu"
-IMAGE=gaodp/ubuntu:latest
+CONTAINER_NAME="alpine"
+IMAGE=gaodp/alpine:latest
 
 docker version >/dev/null 2>&1
 if [ $? -ne 0 ]; then
@@ -13,7 +13,6 @@ running=$(docker container inspect $CONTAINER_NAME -f {{.State.Running}} 2>/dev/
 if [ $? -ne 0 ]; then
 	docker run -it \
         --name $CONTAINER_NAME \
-        -v ~/Exercism:/root/Exercism \
         -v ~/work:/root/work \
         -v ~/data:/root/data $IMAGE
 elif [ "${running}" == "true" ]; then
