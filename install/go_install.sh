@@ -1,7 +1,6 @@
 #! /bin/zsh
 
-echo
-"
+echo "
 export GO111MODULE=on
 export GOPROXY=https://goproxy.cn
 export GOROOT=$(go env GOROOT)
